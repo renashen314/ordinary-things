@@ -1,3 +1,7 @@
+# Ordinary things
+
+A collection of productivity tools, mini games, and other ordinary things. 
+
 # Astro Starter Kit: Minimal
 
 ```sh

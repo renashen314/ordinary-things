@@ -1,0 +1,185 @@
+---
+// Sample app data
+const apps = [
+	{
+		name: "Pomodoro Timer",
+		description: "Stay focused with the classic 25-minute work sessions and 5-minute breaks.",
+		image: "/images/pomodoro.jpg",
+		url: "/apps/pomodoro"
+	},
+	{
+		name: "Todo List",
+		description: "Simple and clean task management to keep your day organized.",
+		image: "/images/todo.jpg",
+		url: "/apps/todo"
+	},
+	{
+		name: "Mini Calculator",
+		description: "Quick calculations for everyday math needs.",
+		image: "/images/calculator.jpg",
+		url: "/apps/calculator"
+	},
+	{
+		name: "Color Palette Generator",
+		description: "Generate beautiful color combinations for your projects.",
+		image: "/images/colors.jpg",
+		url: "/apps/colors"
+	},
+	{
+		name: "Password Generator",
+		description: "Create secure, random passwords for your accounts.",
+		image: "/images/password.jpg",
+		url: "/apps/password"
+	},
+	{
+		name: "Weather Widget",
+		description: "Quick weather check for your current location.",
+		image: "/images/weather.jpg",
+		url: "/apps/weather"
+	}
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Ordinary Things</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+				line-height: 1.6;
+				color: #333;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				min-height: 100vh;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 2rem;
+			}
+
+			.header {
+				text-align: center;
+				margin-bottom: 4rem;
+				color: white;
+			}
+
+			.title {
+				font-size: 3.5rem;
+				font-weight: 700;
+				margin-bottom: 1rem;
+				text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+			}
+
+			.tagline {
+				font-size: 1.3rem;
+				opacity: 0.9;
+				max-width: 600px;
+				margin: 0 auto;
+				font-weight: 300;
+			}
+
+			.apps-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+
+			.app-card {
+				background: white;
+				border-radius: 16px;
+				overflow: hidden;
+				box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				text-decoration: none;
+				color: inherit;
+				display: block;
+			}
+
+			.app-card:hover {
+				transform: translateY(-8px);
+				box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+			}
+
+			.app-image {
+				width: 100%;
+				height: 200px;
+				background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 3rem;
+				color: #999;
+			}
+
+			.app-content {
+				padding: 1.5rem;
+			}
+
+			.app-name {
+				font-size: 1.4rem;
+				font-weight: 600;
+				margin-bottom: 0.5rem;
+				color: #2d3748;
+			}
+
+			.app-description {
+				color: #718096;
+				font-size: 0.95rem;
+				line-height: 1.5;
+			}
+
+			@media (max-width: 768px) {
+				.container {
+					padding: 1rem;
+				}
+				
+				.title {
+					font-size: 2.5rem;
+				}
+				
+				.tagline {
+					font-size: 1.1rem;
+				}
+				
+				.apps-grid {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="header">
+				<h1 class="title">Ordinary Things</h1>
+				<p class="tagline">A collection of tools that fits into your daily life and makes it brighter.</p>
+			</header>
+
+			<main class="apps-grid">
+				{apps.map((app) => (
+					<a href={app.url} class="app-card">
+						<div class="app-image">
+							{app.name.charAt(0)}
+						</div>
+						<div class="app-content">
+							<h2 class="app-name">{app.name}</h2>
+							<p class="app-description">{app.description}</p>
+						</div>
+					</a>
+				))}
+			</main>
+		</div>
+	</body>
+</html>
