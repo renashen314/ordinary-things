@@ -169,7 +169,11 @@ const apps = [
 
 			<main class="apps-grid">
 				{apps.map((app) => (
-					<a href={app.url} class="app-card">
+					<a href={app.url} 
+					class="app-card"
+					target="_blank"
+					rel="noopener noreferrer"
+					>
 						<div class="app-image">
 							{app.name.charAt(0)}
 						</div>
