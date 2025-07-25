@@ -4,39 +4,39 @@ const apps = [
 	{
 		name: "Pomodoro Timer",
 		description: "Stay focused with the classic 25-minute work sessions and 5-minute breaks.",
-		image: "/images/pomodoro.jpg",
+		image: "/img/pomodoro.png",
 		url: "https://pomodoro-timer-puce-mu.vercel.app/"
 	},
 	{
 		name: "Task Manager",
 		description: "Simple and clean task management to keep your day organized.",
-		image: "/images/todo.jpg",
+		image: "/img/dnd-task.png",
 		url: "https://drag-and-drop-todo-list-two.vercel.app/"
 	},
-	{
-		name: "Mini Calculator",
-		description: "Quick calculations for everyday math needs.",
-		image: "/images/calculator.jpg",
-		url: "/apps/calculator"
-	},
-	{
-		name: "DnD character Generator",
-		description: "Generate beautiful color combinations for your projects.",
-		image: "/images/colors.jpg",
-		url: "/apps/colors"
-	},
-	{
-		name: "Password Generator",
-		description: "Create secure, random passwords for your accounts.",
-		image: "/images/password.jpg",
-		url: "/apps/password"
-	},
-	{
-		name: "Weather Widget",
-		description: "Quick weather check for your current location.",
-		image: "/images/weather.jpg",
-		url: "/apps/weather"
-	}
+	// {
+	// 	name: "Mini Calculator",
+	// 	description: "Quick calculations for everyday math needs.",
+	// 	image: "/images/calculator.jpg",
+	// 	url: "/apps/calculator"
+	// },
+	// {
+	// 	name: "DnD character Generator",
+	// 	description: "Generate beautiful color combinations for your projects.",
+	// 	image: "/images/colors.jpg",
+	// 	url: "/apps/colors"
+	// },
+	// {
+	// 	name: "Password Generator",
+	// 	description: "Create secure, random passwords for your accounts.",
+	// 	image: "/images/password.jpg",
+	// 	url: "/apps/password"
+	// },
+	// {
+	// 	name: "Weather Widget",
+	// 	description: "Quick weather check for your current location.",
+	// 	image: "/images/weather.jpg",
+	// 	url: "/apps/weather"
+	// }
 ];
 ---
 
@@ -97,6 +97,9 @@ const apps = [
 			}
 
 			.app-card {
+				display: flex;
+				flex-direction: column;
+				height: 350px;
 				background: white;
 				border-radius: 16px;
 				overflow: hidden;
@@ -104,7 +107,6 @@ const apps = [
 				transition: transform 0.3s ease, box-shadow 0.3s ease;
 				text-decoration: none;
 				color: inherit;
-				display: block;
 			}
 
 			.app-card:hover {
@@ -113,17 +115,23 @@ const apps = [
 			}
 
 			.app-image {
+				height: 50%;
 				width: 100%;
-				height: 200px;
-				background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				font-size: 3rem;
-				color: #999;
+				background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+			}
+
+			.app-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
 			}
 
 			.app-content {
+				flex: 1;
 				padding: 1.5rem;
 			}
 
@@ -175,7 +183,7 @@ const apps = [
 					rel="noopener noreferrer"
 					>
 						<div class="app-image">
-							{app.name.charAt(0)}
+							<img src={app.image} alt="app snapshot" />
 						</div>
 						<div class="app-content">
 							<h2 class="app-name">{app.name}</h2>
